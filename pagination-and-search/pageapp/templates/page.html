@@ -1,0 +1,40 @@
+<h1>hiiiii </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for post in form %}
+        <h1>{{post.title}}</h1>
+        <p>{{post.docs}}</p>
+        <small>{{ post.publish_date }}</small>
+    {% endfor %}
+
+
+    <div class="page-links">
+        <span>
+
+            {% if form.has_previous %} 
+                <a href="{% url 'home' %}?page={{form.previous_page_number}}">previous</a> 
+            {% endif %}
+
+             <span>{{page_no}}</span> 
+        
+
+            {% if form.has_next %} 
+                <a href="{% url 'home' %}?page={{form.next_page_number}}">Next</a> 
+            {% endif %}
+
+
+        </span>
+    </div>
+
+</body>
+
+</html>
+
+{% comment %} sudo fuser -k 8000/tcp {% endcomment %}
